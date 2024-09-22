@@ -1,12 +1,11 @@
-const express = require('express');
-
-//Inicilaizaciones 
+const express = require("express")
 const app = express();
 
-// Ajustes del servidor 
-app.set('port', process.env.PORT || 4000);
+require("dotenv").config();
 
-// Iniciar el Servidor 
-app.listen(app.get('port'),() => {
-    console.log('servidor iniciando en el puerto: ', app.get('port'));
+app.set("port", process.env.PORT || 4500);
+app.use(require('./routes'))
+app.listen(app.get('port'), () => {
+    console.log('Servidor iniciado en el puerto: ', app.get('port'));
 });
+
